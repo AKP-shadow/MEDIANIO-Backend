@@ -12,11 +12,11 @@ import postRouter from './routes/post.routes';
 import validateEnv from './utils/validateEnv';
 import redisClient from './utils/connectRedis';
 
-// import nodemailer from 'nodemailer';
-// (async function () {
-//   const credentials = await nodemailer.createTestAccount();
-//   console.log(credentials);
-// })();
+import nodemailer from 'nodemailer';
+(async function () {
+  const credentials = await nodemailer.createTestAccount();
+  console.log(credentials);
+})();
 
 AppDataSource.initialize()
   .then(async () => {
