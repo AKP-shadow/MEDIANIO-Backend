@@ -55,7 +55,8 @@ AppDataSource.initialize()
 
     // HEALTH CHECKER
     app.get('/api/healthChecker', async (_, res: Response) => {
-     const message = await redisClient.get('try');
+    //  const message = await redisClient.get('try');
+      const message = 'Welcome';
 
       res.status(200).json({
         status: 'success',
