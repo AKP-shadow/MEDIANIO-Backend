@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { findUserEducation, findUsersByEducationCriteria } from '../services/user_education.service'; // Import the service function
 import { findUserEmployment } from '../services/user_employment.service';
+import { getAllUser } from '../services/user.service';
 
 export const findUsersByEducationController = async (
   req: Request,
@@ -47,6 +48,25 @@ export const getMeHandler = async (
 ) => {
   try {
     const user = res.locals.user;
+
+    res.status(200).status(200).json({
+      status: 'success',
+      data: {
+        user,
+      },
+    });
+  } catch (err: any) {
+    next(err);
+  }
+};
+
+export const getAllUserHandler = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = await getAllUser();
 
     res.status(200).status(200).json({
       status: 'success',

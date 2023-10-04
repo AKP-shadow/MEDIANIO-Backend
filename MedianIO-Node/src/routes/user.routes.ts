@@ -1,5 +1,5 @@
 import express from 'express';
-import { findUsersByEducationController, findUsersByEmploymentController, getMeHandler } from '../controllers/user.controller';
+import { findUsersByEducationController, findUsersByEmploymentController, getAllUserHandler, getMeHandler } from '../controllers/user.controller';
 import { deserializeUser } from '../middleware/deserializeUser';
 import { requireUser } from '../middleware/requireUser';
 

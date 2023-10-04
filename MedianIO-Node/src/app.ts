@@ -13,6 +13,7 @@ import validateEnv from './utils/validateEnv';
 import redisClient from './utils/connectRedis';
 
 import nodemailer from 'nodemailer';
+import { getAllUserHandler } from './controllers/user.controller';
 (async function () {
   const credentials = await nodemailer.createTestAccount();
   console.log(credentials);
@@ -52,7 +53,7 @@ AppDataSource.initialize()
     app.use('/api/auth', authRouter);
     app.use('/api/users', userRouter);
     app.use('/api/posts', postRouter);
-
+    app.get('/api/getAll', getAllUserHandler);
     // HEALTH CHECKER
     app.get('/api/healthChecker', async (_, res: Response) => {
     //  const message = await redisClient.get('try');
